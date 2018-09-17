@@ -28,6 +28,7 @@ class CoverageReporter(object):
         self.coverage.start()
 
     def save(self, apps_locations, options):
+        coverage.combine()
         self.coverage.stop()
         self.coverage.get_data()
         morfs = self.get_morfs(self.coverage, apps_locations, options)
