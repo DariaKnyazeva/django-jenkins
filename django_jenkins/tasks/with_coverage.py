@@ -23,6 +23,8 @@ class CoverageReporter(object):
         self.coverage = coverage.coverage(
             branch=True,
             config_file=coverage_config_file or self.default_coverage_config())
+        # TODO: only if tests are parallel
+        self.coverage.process_startup()
         self.coverage.start()
 
     def save(self, apps_locations, options):
